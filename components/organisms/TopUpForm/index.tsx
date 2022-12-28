@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function TopUpForm() {
   return (
     <form action="./checkout.html" method="POST">
@@ -161,8 +163,8 @@ export default function TopUpForm() {
           placeholder="Enter your Bank Account Name" />
       </div>
       <div className="d-sm-block d-flex flex-column w-100">
-        <a href="./checkout.html" type="submit"
-          className="btn btn-submit rounded-pill fw-medium text-white border-0 text-lg">Continue</a>
+        <Link href="/checkout" type="submit"
+          className="btn btn-submit rounded-pill fw-medium text-white border-0 text-lg">Continue</Link>
       </div>
     </form>
   )
