@@ -1,9 +1,8 @@
-
 .edit-profile {
     background-color: #FBFCFD;
 }
 
-.edit-profile main.main-wrapper{
+.edit-profile main.main-wrapper {
     margin-left: 340px;
     height: 100%;
     margin-right: auto;
@@ -11,16 +10,17 @@
     padding: 50px 50px 50px 0px;
 }
 
-.edit-profile .bg-card{
+.edit-profile .bg-card {
     background-color: #FFF;
     border-radius: 1rem;
     max-width: 590px;
 }
-.edit-profile main .avatar-overlay:hover{
+
+.edit-profile main .avatar-overlay:hover {
     opacity: 1;
 }
 
-.edit-profile main .avatar-overlay{
+.edit-profile main .avatar-overlay {
     background-color: rgba(12, 20, 90, 0.7);
     width: 90px;
     height: 90px;
@@ -30,11 +30,11 @@
     cursor: pointer;
 }
 
-.edit-profile .image-upload label{
+.edit-profile .image-upload label {
     cursor: pointer;
 }
 
-.edit-profile .image-upload  input {
+.edit-profile .image-upload input {
     visibility: hidden;
     width: 0;
     height: 0;
@@ -42,7 +42,7 @@
 
 .edit-profile input[type="tel"],
 .edit-profile input[type="email"],
-.edit-profile input[type="text"]{
+.edit-profile input[type="text"] {
     border: 1px solid #0C145A;
     padding: 0.75rem 1.625rem;
     color: #0C145A;
@@ -51,21 +51,21 @@
 
 .edit-profile input[type="tel"]:focus-within,
 .edit-profile input[type="email"]:focus-within,
-.edit-profile input[type="text"]:focus-within{
+.edit-profile input[type="text"]:focus-within {
     color: #0C145A;
 }
 
 .edit-profile input[type="tel"]::placeholder,
 .edit-profile input[type="email"]::placeholder,
-.edit-profile input[type="text"]::placeholder{
+.edit-profile input[type="text"]::placeholder {
     color: #CCD0DD;
 }
 
-.edit-profile .btn-save{
+.edit-profile .btn-save {
     padding: 0.75rem;
     background-color: #4D17E2;
 }
 
-.edit-profile .button-group{
+.edit-profile .button-group {
     max-width: 467px;
 }
