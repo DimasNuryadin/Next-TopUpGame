@@ -24,7 +24,7 @@ export default function MenuItem(props: Partial<MenuItemProps>) {
         <Image src={`/icon/${icon}.svg`} width={25} height={25} alt="Overview" />
       </div>
       <p className="item-title m-0">
-        <Link href={href} className="text-lg text-decoration-none">{title}</Link>
+        <Link href={href!} className="text-lg text-decoration-none">{title}</Link>
       </p>
     </div>
   )
