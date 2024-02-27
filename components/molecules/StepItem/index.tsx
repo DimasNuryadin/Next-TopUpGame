@@ -5,7 +5,7 @@ export interface StepItemProps {
   desc2: string;
 }
 
-export default function StepItem(props: StepItemProps) {
+export default function StepItem(props: Readonly<StepItemProps>) {
   const { icon, title, desc1, desc2 } = props;
   return (
     <div className="col-lg-4">

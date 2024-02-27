@@ -7,7 +7,7 @@ export interface GameItemProps {
   thumbnail: '/img/Thumbnail-1.png' | '/img/Thumbnail-2.png' | '/img/Thumbnail-3.png' | '/img/Thumbnail-4.png' | '/img/Thumbnail-5.png'
 }
 
-export default function GameItem(props: GameItemProps) {
+export default function GameItem(props: Readonly<GameItemProps>) {
   const { title, category, thumbnail } = props;
 
   return (

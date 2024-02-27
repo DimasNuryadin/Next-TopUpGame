@@ -4,7 +4,7 @@ import Link from "next/link";
 interface AuthProps {
   isLogin?: boolean;
 }
-export default function Auth(props: Partial<AuthProps>) {
+export default function Auth(props: Readonly<Partial<AuthProps>>) {
   const { isLogin } = props;
   if (isLogin) {
     return (
@@ -30,7 +30,7 @@ export default function Auth(props: Partial<AuthProps>) {
   }
   return (
     <li className="nav-item my-auto">
-      <Link className="btn btn-sign-in d-flex justify-content-center ms-lg-2 rounded-pill" role="button" href="/sig-in">
+      <Link href="/sign-in" className="btn btn-sign-in d-flex justify-content-center ms-lg-2 rounded-pill">
         Sign In
       </Link>
     </li>
