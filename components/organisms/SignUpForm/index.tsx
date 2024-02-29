@@ -23,9 +23,9 @@ export default function SignUpForm() {
       </div>
       <div className="button-group d-flex flex-column mx-auto pt-50">
         <Link className="btn btn-sign-up fw-medium text-lg text-white rounded-pill mb-16"
-          href="/sign-up-photo" role="button">Continue</Link>
+          href="/sign-up-photo" >Continue</Link>
         <Link className="btn btn-sign-in fw-medium text-lg color-palette-1 rounded-pill" href="/sign-in"
-          role="button">Sign
+        >Sign
           In</Link>
       </div>
     </>

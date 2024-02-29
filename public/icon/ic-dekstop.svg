@@ -24,10 +24,10 @@
               <rect x="17.5" y="47.5" width="25" height="2.5" rx="1.25"
                 fill="#695DE9" />
               <path d="M32.6875 35.3125L15.5 35.3125" stroke="white"
-                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M19.5 18.3125L15.5 18.3125" stroke="white" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round" />
-              <path d="M26.4375 29.5L15.5 29.5" stroke="#B7B0F4" stroke-width="2.5"
-                stroke-linecap="round" stroke-linejoin="round" />
+                strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M19.5 18.3125L15.5 18.3125" stroke="white" strokeWidth="2.5"
+                strokeLinecap="round" strokeLinejoin="round" />
+              <path d="M26.4375 29.5L15.5 29.5" stroke="#B7B0F4" strokeWidth="2.5"
+                strokeLinecap="round" strokeLinejoin="round" />
             </g>
           </svg>

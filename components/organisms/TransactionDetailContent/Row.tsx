@@ -4,7 +4,7 @@ interface RowProps {
   className?: 'color-palette-4';
 }
 
-export default function Row(props: Partial<RowProps>) {
+export default function Row(props: Readonly<Partial<RowProps>>) {
   const { label, value, className } = props;
 
   return (
