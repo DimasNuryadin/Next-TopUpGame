@@ -6,7 +6,7 @@ export default {
   component: Input,
 } as Meta;
 
-// const Template = (args: InputProps) => <Input {...args} />
+// Versi lama const Template = (args: InputProps) => <Input {...args} />
 const Template: Story<InputProps> = (args) => <Input {...args} />
 
 export const Default = Template.bind({});

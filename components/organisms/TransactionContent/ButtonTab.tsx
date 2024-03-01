@@ -6,7 +6,7 @@ interface ButtonTabProps {
   active: boolean;
 }
 
-export default function ButtonTab(props: ButtonTabProps) {
+export default function ButtonTab(props: Readonly<ButtonTabProps>) {
   const { title, active } = props;
 
   const btnClass = cx({

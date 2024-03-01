@@ -16,6 +16,7 @@ import '../styles/edit-profile.css';
 import '../styles/navbar-log-in.css';
 import * as nextImage from "next/image";
 
+// Melakukan modifikasi ketika nextImage itu dipanggil diubah menjadi <img> biasa
 Object.defineProperty(nextImage, "default", {
   configurable: true,
   value: props => <img {...props} />

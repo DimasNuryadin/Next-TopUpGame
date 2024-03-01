@@ -6,7 +6,7 @@ interface SideBarProps {
   activeMenu: 'overview' | 'transactions' | 'settings';
 }
 
-export default function SideBar(props: SideBarProps) {
+export default function SideBar(props: Readonly<SideBarProps>) {
   const { activeMenu } = props;
 
   return (

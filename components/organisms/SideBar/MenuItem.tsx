@@ -9,7 +9,7 @@ interface MenuItemProps {
   href: string;
 }
 
-export default function MenuItem(props: Partial<MenuItemProps>) {
+export default function MenuItem(props: Readonly<Partial<MenuItemProps>>) {
   const { title, icon, active, href } = props
 
   const classItem = cx({

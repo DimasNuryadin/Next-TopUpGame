@@ -3,7 +3,7 @@ export interface InputProps {
   placeholder: string;
 }
 
-export default function Input(props: InputProps) {
+export default function Input(props: Readonly<InputProps>) {
   const { label, placeholder, ...nativeProps } = props;
 
   return (

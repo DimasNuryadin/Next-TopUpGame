@@ -7,7 +7,7 @@ interface CategoryProps {
   icon: 'ic-dekstop' | 'ic-mobile';
 }
 
-export default function Category(props: CategoryProps) {
+export default function Category(props: Readonly<CategoryProps>) {
   const { children, nominal, icon } = props;
 
   return (

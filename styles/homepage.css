@@ -72,7 +72,7 @@
 
 
 /* Feature */
-.feature .feature-card {
+.feature-card {
     background-color: #F9FAFF;
     padding: 1.875rem;
     border-radius: 1.625rem;
@@ -89,36 +89,36 @@
 }
 
 
-.featured-game .featured-game-card {
+.featured-game-card {
     transition: all 0.4s;
     border-radius: 1.625rem;
     width: 205px;
     height: 270px;
 }
 
-.featured-game .featured-game-card:hover {
+.featured-game-card:hover {
     transition: all 0.4s;
     border: 4px solid #2B2467;
 }
 
-.featured-game .featured-game-card:hover img.thumbnail {
+.featured-game-card:hover img.thumbnail {
     transition: all 0.4s;
     filter: blur(40px);
     width: 181px;
     height: 246px;
 }
 
-.featured-game .featured-game-card .blur-sharp {
+.featured-game-card .blur-sharp {
     overflow: hidden;
     border-radius: 1.625rem;
 }
 
-.featured-game .featured-game-card:hover .blur-sharp {
+.featured-game-card:hover .blur-sharp {
     width: 192px;
     border: 7px solid white;
 }
 
-.featured-game .cover {
+.cover {
     transition: all 0.4s;
     opacity: 0;
     left: 0;
@@ -126,11 +126,11 @@
     height: -webkit-fill-available;
 }
 
-.featured-game .featured-game-card:hover .cover {
+.featured-game-card:hover .cover {
     opacity: 1;
 }
 
-.featured-game .game-icon {
+.game-icon {
     margin-top: 3.125rem;
 }
 

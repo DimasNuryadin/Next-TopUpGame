@@ -45,8 +45,8 @@ export default function TransactionDetailContent() {
                 <Row label="Bank Number" value="1800 - 9090 - 2021" />
               </div>
               <div className="d-md-block d-flex flex-column w-100">
-                <a className="btn btn-whatsapp rounded-pill fw-medium text-white border-0 text-lg" href="#"
-                  role="button">WhatsApp ke Admin</a>
+                <a className="btn btn-whatsapp rounded-pill fw-medium text-white border-0 text-lg" href="/#"
+                >WhatsApp ke Admin</a>
               </div>
             </section>
           </div>

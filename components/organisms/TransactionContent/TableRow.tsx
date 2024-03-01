@@ -10,7 +10,7 @@ interface TableRowProps {
   status: 'Pending' | 'Success' | 'Failed'
 }
 
-export default function TableRow(props: TableRowProps) {
+export default function TableRow(props: Readonly<TableRowProps>) {
   const { image, title, category, item, price, status } = props;
   const statusClass = cx({
     'float-start icon-status': true,

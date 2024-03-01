@@ -10,7 +10,7 @@ interface TableRowProps {
   image: string;
 }
 
-export default function TableRow(props: TableRowProps) {
+export default function TableRow(props: Readonly<TableRowProps>) {
   const { title, category, item, price, status, image } = props
 
   const statusClass = cx({
