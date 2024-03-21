@@ -4,7 +4,7 @@ import Link from "next/link";
 export interface GameItemProps {
   title: string;
   category: string;
-  thumbnail: '/img/Thumbnail-1.png' | '/img/Thumbnail-2.png' | '/img/Thumbnail-3.png' | '/img/Thumbnail-4.png' | '/img/Thumbnail-5.png'
+  thumbnail: string;
 }
 
 export default function GameItem(props: Readonly<GameItemProps>) {
@@ -14,7 +14,7 @@ export default function GameItem(props: Readonly<GameItemProps>) {
     <div className="featured-game-card position-relative">
       <Link href="/detail">
         <div className="blur-sharp">
-          <Image className="thumbnail" src={thumbnail} width={205} height={270} alt="" />
+          <Image loader={() => thumbnail} className="thumbnail" src={thumbnail} width={205} height={270} alt="" />
         </div>
         <div className="cover position-absolute bottom-0 m-32">
           <div className="d-flex flex-column h-100 justify-content-between text-decoration-none">
