@@ -1,7 +1,6 @@
 export interface CategoyTypes {
   _id: string;
   name: string;
-  __v: number
 }
 
 export interface GameItemTypes {
@@ -10,4 +9,18 @@ export interface GameItemTypes {
   name: string;
   thumbnail: string;
   category: CategoyTypes
+}
+
+export interface BanksTypes {
+  _id: string;
+  name: string;
+  bankName: string;
+  noRekening: string;
+}
+
+export interface PaymentTypes {
+  _id: string;
+  type: string;
+  status: string;
+  banks: BanksTypes[]
 }

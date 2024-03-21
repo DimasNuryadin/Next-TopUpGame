@@ -1,5 +1,10 @@
 import Link from "next/link";
+import { PaymentTypes } from "../../../services/data-types";
 
+interface TopUpForm {
+  nominals: [];
+  payments: PaymentTypes;
+}
 export default function TopUpForm() {
   return (
     <form action="./checkout.html" method="POST">
