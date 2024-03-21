@@ -3,7 +3,7 @@ export interface ReachedItemProps {
   desc: string;
 }
 
-export default function ReachedItem(props: ReachedItemProps) {
+export default function ReachedItem(props: Readonly<ReachedItemProps>) {
   const { title, desc } = props;
   return (
     <div className="me-lg-35">

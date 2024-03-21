@@ -11,7 +11,7 @@ export default function Auth(props: Readonly<Partial<AuthProps>>) {
       <li className="nav-item my-auto dropdown d-flex">
         <div className="vertical-line d-lg-block d-none"></div>
         <div>
-          <a className="dropdown-toggle ms-lg-40" href="#" role="button" id="dropdownMenuLink"
+          <a className="dropdown-toggle ms-lg-40" href="/#" id="dropdownMenuLink"
             data-bs-toggle="dropdown" aria-expanded="false">
             <img src="/img/avatar-1.png" className="rounded-circle" width="40" height="40"
               alt="" />

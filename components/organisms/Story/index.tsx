@@ -14,7 +14,7 @@ export default function Story() {
                 className="d-sm-block d-none" />
                 membantu players menjadi<br className="d-sm-block d-none" /> pemenang sejati</p>
               <div className="d-md-block d-flex flex-column w-100">
-                <a className="btn btn-read text-lg rounded-pill" href="#" role="button">Read Story</a>
+                <a className="btn btn-read text-lg rounded-pill" href="/#">Read Story</a>
               </div>
             </div>
           </div>

@@ -127,10 +127,10 @@ export default function CompleteCheckout() {
         </div>
         <div className="button-group d-flex flex-column mx-auto">
           <a className="btn btn-dashboard fw-medium text-lg text-white rounded-pill mb-16"
-            href="../member/overview.html" role="button">My
+            href="../member/overview.html">My
             Dashboard</a>
-          <a className="btn btn-whatsapp fw-medium text-lg color-palette-1 rounded-pill" href="#"
-            role="button">WhatsApp
+          <a className="btn btn-whatsapp fw-medium text-lg color-palette-1 rounded-pill" href="/#"
+          >WhatsApp
             ke Admin</a>
         </div>
       </div>
