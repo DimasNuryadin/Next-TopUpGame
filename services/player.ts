@@ -1,9 +1,10 @@
 import axios from "axios";
 
+const ROOT_API = process.env.NEXT_PUBLIC_API;
+const API_VERSION = 'api/v1';
+
 // GET Landing Page
 export async function getFeatureGame() {
-  const ROOT_API = process.env.NEXT_PUBLIC_API;
-  const API_VERSION = 'api/v1';
   const URL = 'players/landingpage';
 
   const response = await axios.get(`${ROOT_API}/${API_VERSION}/${URL}`);
@@ -11,6 +12,10 @@ export async function getFeatureGame() {
   return axiosResponse.data;
 }
 
-export async function getDetailVoucher() {
-  return null
+export async function getDetailVoucher(id: string) {
+  const URL = `players/${id}/detail`;
+
+  const response = await axios.get(`${ROOT_API}/${API_VERSION}/${URL}`);
+  const axiosResponse = response.data;
+  return axiosResponse.data;
 }
