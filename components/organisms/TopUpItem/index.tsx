@@ -37,8 +37,6 @@ export default function TopUpItem(props: Readonly<TopUpItemProps>) {
           height={380}
           className="img-fluid"
           alt="Thumbnail"
-          style={{ width: '100%', height: 'auto' }}
-          priority={true}
         />
       </div>
       <div className="col-md-12 col-8 d-md-none d-block">
