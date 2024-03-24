@@ -15,7 +15,7 @@ export default function GameItem(props: Readonly<GameItemProps>) {
     <div className="featured-game-card position-relative">
       <Link href={`/detail/${id}`}>
         <div className="blur-sharp">
-          <Image loader={() => thumbnail} className="thumbnail" src={thumbnail} width={205} height={270} alt="" />
+          <Image loader={() => thumbnail} unoptimized className="thumbnail" src={thumbnail} width={205} height={270} alt="" />
         </div>
         <div className="cover position-absolute bottom-0 m-32">
           <div className="d-flex flex-column h-100 justify-content-between text-decoration-none">
@@ -29,7 +29,6 @@ export default function GameItem(props: Readonly<GameItemProps>) {
           </div>
         </div>
       </Link>
-
     </div>
   )
 }

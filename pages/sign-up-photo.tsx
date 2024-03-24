@@ -54,15 +54,18 @@ export default function SignUpPhoto() {
     data.append('status', 'Y');
     data.append('favorite', favorite);
 
-    const result = await setSignUp(data);
+    console.log("data :", data)
 
-    if (result?.error === 1) {
-      toast.error(result.message);
-    } else {
-      toast.success('Register Berhasil')
-      router.push('/sign-up-success')
-      localStorage.removeItem('user-form')
-    }
+    // const result = await setSignUp(data);
+
+    // if (result?.error === 1) {
+    //   // react-toastify
+    //   toast.error(result.message);
+    // } else {
+    //   toast.success('Register Berhasil')
+    //   router.push('/sign-up-success')
+    //   localStorage.removeItem('user-form')
+    // }
   }
 
   return (
@@ -130,6 +133,8 @@ export default function SignUpPhoto() {
           </div>
         </form>
       </div>
+
+      {/* react-toastify */}
       <ToastContainer />
     </section>
   )
