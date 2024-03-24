@@ -33,13 +33,13 @@ export default function SignUpPhoto() {
 
   useEffect(() => {
     const getLocalForm = localStorage.getItem('user-form')
-    setLocalForm(JSON.parse(getLocalForm))
+    setLocalForm(JSON.parse(getLocalForm!))
   }, [])
 
   const onSubmit = async () => {
     // Local storage
     const getLocalForm = await localStorage.getItem('user-form');
-    const form = JSON.parse(getLocalForm);
+    const form = JSON.parse(getLocalForm!);
 
     // Menggabungkan data
     const data = new FormData();
@@ -56,16 +56,16 @@ export default function SignUpPhoto() {
 
     console.log("data :", data)
 
-    // const result = await setSignUp(data);
+    const result = await setSignUp(data);
 
-    // if (result?.error === 1) {
-    //   // react-toastify
-    //   toast.error(result.message);
-    // } else {
-    //   toast.success('Register Berhasil')
-    //   router.push('/sign-up-success')
-    //   localStorage.removeItem('user-form')
-    // }
+    if (result.error) {
+      // react-toastify
+      toast.error(result.message);
+    } else {
+      toast.success('Register Berhasil')
+      router.push('/sign-up-success')
+      localStorage.removeItem('user-form')
+    }
   }
 
   return (
