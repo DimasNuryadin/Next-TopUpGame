@@ -8,8 +8,8 @@ export default function FeaturedGame() {
 
   // Get Landing Page
   const getFeatureGameList = useCallback(async () => {
-    const data = await getFeatureGame();
-    setGameList(data);
+    const response = await getFeatureGame();
+    setGameList(response.data);
   }, [getFeatureGame])
 
   useEffect(() => {
