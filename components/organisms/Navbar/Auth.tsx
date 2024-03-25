@@ -2,17 +2,16 @@ import Cookies from "js-cookie";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { jwtDecode } from "jwt-decode";
+import { JWTPayloadTypes, UserTypes } from "../../../services/data-types";
+import { useRouter } from "next/router";
 
 export default function Auth() {
   const [isLogin, setIsLogin] = useState(false);
   const [user, setUser] = useState({
-    email: "",
-    id: "",
-    name: "",
-    phoneNumber: "",
-    username: "",
-    avatar: ""
+    avatar: "",
   })
+
+  const router = useRouter()
 
   useEffect(() => {
     // Ambil Cookies
@@ -20,19 +19,26 @@ export default function Auth() {
     if (token) {
       const jwtToken = atob(token!)
       // jwt_decode
-      const payload = jwtDecode(jwtToken);
-      const user = payload.player;
+      const payload: JWTPayloadTypes = jwtDecode(jwtToken);
+      const userFromPayload: UserTypes = payload.player;
 
       // Image
-      if (user.avatar) {
+      if (userFromPayload.avatar) {
         const IMG = process.env.NEXT_PUBLIC_IMG;
-        user.avatar = `${IMG}/${user.avatar}`;
+        userFromPayload.avatar = `${IMG}/${userFromPayload.avatar}`;
       }
 
       setIsLogin(true)
-      setUser(user);
+      setUser(userFromPayload);
     }
-  }, [])
+  }, []);
+
+  const onLogout = () => {
+    // Remove Cookies
+    Cookies.remove('token');
+    router.push('/');
+    setIsLogin(false);
+  }
 
   if (isLogin) {
     return (
@@ -64,7 +70,7 @@ export default function Auth() {
             <li><Link className="dropdown-item text-lg color-palette-2" href="/">Wallet</Link></li>
             <li><Link className="dropdown-item text-lg color-palette-2" href="/member/edit-profile">Account Settings</Link>
             </li>
-            <li><Link className="dropdown-item text-lg color-palette-2" href="/sign-in">Log Out</Link></li>
+            <li><button type="button" onClick={onLogout} className="dropdown-item text-lg color-palette-2">Log Out</button></li>
           </ul>
         </div>
       </li>
