@@ -21,10 +21,11 @@ export default function Detail() {
 
   // Get Detail Page
   const getVoucherDetailAPI = useCallback(async (id: any) => {
-    const response = await getDetailVoucher(id);
-    setDataItem(response.data.detail)
-    setNominals(response.data.detail.nominals)
-    setPayments(response.data.payment)
+    const { data } = await getDetailVoucher(id);
+    setDataItem(data.detail);
+    localStorage.setItem('data-item', JSON.stringify(data.detail))
+    setNominals(data.detail.nominals)
+    setPayments(data.payment)
   }, [])
 
   useEffect(() => {
