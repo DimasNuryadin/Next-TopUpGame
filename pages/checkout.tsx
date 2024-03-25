@@ -64,7 +64,7 @@ export async function getServerSideProps({ req }: any) {      // contex berisi r
 
   return {
     props: {
-      user: userFromPayload,   // Kirim data payload
+      user: userFromPayload,   // Kirim data payload ke props
     }
   }
 }

@@ -5,8 +5,7 @@ import { setSignIn } from "../../../services/auth";
 import cx from 'classnames';
 
 // react-toastify
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 // Cookies
 import Cookies from 'js-cookie';
@@ -82,9 +81,6 @@ export default function SignInForm() {
           href="/sign-up">Sign
           Up</Link>
       </div>
-
-      {/* react-toastify */}
-      <ToastContainer />
     </>
   )
 }

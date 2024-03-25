@@ -5,8 +5,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 
 // react-toastify
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
 
 interface TopUpFormProps {
   nominals: NominalsTypes[];
@@ -36,11 +35,6 @@ export default function TopUpForm(props: Readonly<TopUpFormProps>) {
   }
 
   const onSubmit = () => {
-    console.log('verify id : ', verifyID)
-    console.log('bank account : ', bankAccountName)
-    console.log('nominal item : ', nominalItem)
-    console.log('payment item : ', paymentItem)
-
     if (verifyID === '' || bankAccountName === '' || nominalItem === '' || paymentItem === '') {
       toast.error('Silahkan isi semua data!!!')
     } else {
@@ -50,6 +44,7 @@ export default function TopUpForm(props: Readonly<TopUpFormProps>) {
         nominalItem,
         paymentItem,
       }
+      // Simpan local storage
       localStorage.setItem('dta-topup', JSON.stringify(data))
       router.push('/checkout')
     }
@@ -142,9 +137,6 @@ export default function TopUpForm(props: Readonly<TopUpFormProps>) {
           Continue
         </button>
       </div>
-
-      {/* react-toastify */}
-      <ToastContainer />
     </form>
   )
 }
