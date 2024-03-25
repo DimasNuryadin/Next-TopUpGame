@@ -1,11 +1,39 @@
+import Cookies from "js-cookie";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { jwtDecode } from "jwt-decode";
 
-// Props Validation
-interface AuthProps {
-  isLogin?: boolean;
-}
-export default function Auth(props: Readonly<Partial<AuthProps>>) {
-  const { isLogin } = props;
+export default function Auth() {
+  const [isLogin, setIsLogin] = useState(false);
+  const [user, setUser] = useState({
+    email: "",
+    id: "",
+    name: "",
+    phoneNumber: "",
+    username: "",
+    avatar: ""
+  })
+
+  useEffect(() => {
+    // Ambil Cookies
+    const token = Cookies.get('token');
+    if (token) {
+      const jwtToken = atob(token!)
+      // jwt_decode
+      const payload = jwtDecode(jwtToken);
+      const user = payload.player;
+
+      // Image
+      if (user.avatar) {
+        const IMG = process.env.NEXT_PUBLIC_IMG;
+        user.avatar = `${IMG}/${user.avatar}`;
+      }
+
+      setIsLogin(true)
+      setUser(user);
+    }
+  }, [])
+
   if (isLogin) {
     return (
       <li className="nav-item my-auto dropdown d-flex">
@@ -13,8 +41,22 @@ export default function Auth(props: Readonly<Partial<AuthProps>>) {
         <div>
           <a className="dropdown-toggle ms-lg-40" href="/#" id="dropdownMenuLink"
             data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="/img/avatar-1.png" className="rounded-circle" width="40" height="40"
-              alt="" />
+            {user.avatar ? (
+              <img
+                src={user.avatar}
+                className="rounded-circle"
+                width="40"
+                height="40"
+                alt="Profile" />
+            ) : (
+              <img
+                src="/img/avatar-1.png"
+                className="rounded-circle"
+                width="40"
+                height="40"
+                alt="EUY" />
+            )}
+
           </a>
 
           <ul className="dropdown-menu border-0" aria-labelledby="dropdownMenuLink">

@@ -54,8 +54,6 @@ export default function SignUpPhoto() {
     data.append('status', 'Y');
     data.append('favorite', favorite);
 
-    console.log("data :", data)
-
     const result = await setSignUp(data);
 
     if (result.error) {
