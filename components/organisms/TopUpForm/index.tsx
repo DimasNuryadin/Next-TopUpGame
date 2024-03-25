@@ -7,6 +7,9 @@ import { useRouter } from "next/router";
 // react-toastify
 import { toast } from 'react-toastify';
 
+// Lodash untuk cek object kosong atau tidak
+var _ = require('lodash');
+
 interface TopUpFormProps {
   nominals: NominalsTypes[];
   payments: PaymentTypes[];
@@ -35,7 +38,7 @@ export default function TopUpForm(props: Readonly<TopUpFormProps>) {
   }
 
   const onSubmit = () => {
-    if (verifyID === '' || bankAccountName === '' || nominalItem === '' || paymentItem === '') {
+    if (verifyID === '' || bankAccountName === '' || _.isEmpty(nominalItem) === true || _.isEmpty(paymentItem) === true) {
       toast.error('Silahkan isi semua data!!!')
     } else {
       const data = {
@@ -45,7 +48,7 @@ export default function TopUpForm(props: Readonly<TopUpFormProps>) {
         paymentItem,
       }
       // Simpan local storage
-      localStorage.setItem('dta-topup', JSON.stringify(data))
+      localStorage.setItem('data-topup', JSON.stringify(data))
       router.push('/checkout')
     }
   }
