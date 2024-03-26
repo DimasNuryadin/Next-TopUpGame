@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 
 export default function CheckoutItem() {
   const [dataItem, setDataItem] = useState({
-    thumbnail: '',
+    thumbnail: '/img/skeleton-image.png',
     name: '',
     category: {
       name: '',
@@ -12,7 +12,13 @@ export default function CheckoutItem() {
   useEffect(() => {
     const dataFromLocal = localStorage.getItem('data-item');
     const dataItemLocal = JSON.parse(dataFromLocal!);
-    setDataItem(dataItemLocal);
+    setDataItem({
+      thumbnail: `${IMG}/${dataItemLocal.thumbnail}`,
+      name: dataItemLocal.name,
+      category: {
+        name: dataItemLocal.category.name,
+      }
+    });
     // console.log('data item :', dataItemLocal)
   }, [])
 
@@ -21,7 +27,7 @@ export default function CheckoutItem() {
     <div className="game-checkout d-flex flex-row align-items-center pt-md-50 pb-md-50 pt-30 pb-30">
       <div className="pe-4">
         <div className="cropped">
-          <img src={`${IMG}/${dataItem.thumbnail}`} className="img-fluid" alt="" />
+          <img src={dataItem.thumbnail} className="img-fluid" alt="" />
         </div>
       </div>
       <div>
