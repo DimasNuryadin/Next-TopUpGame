@@ -46,8 +46,8 @@ export async function getServerSideProps({ req }: any) {      // contex berisi r
       }
     }
   }
-  // console.log('token : ', token);   // Console hanya bisa dilihat pada console terminal
 
+  // console.log('token : ', token);   // Console hanya bisa dilihat pada console terminal
   // atob tidak bisa digunakan di server jadi pakai fungsi Buffer yang sudah disediakan oleh node
   const jwtToken = Buffer.from(token, 'base64').toString('ascii');
 

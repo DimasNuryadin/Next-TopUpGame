@@ -21,9 +21,10 @@ export default function SignInForm() {
   }
 
   const onSubmit = async () => {
-    const data = new FormData();
-    data.append("email", email)
-    data.append("password", password)
+    const data = {
+      email,
+      password,
+    }
 
     if (!email || !password) {
       toast.error('Email dan Password wajib diisi!!!')
