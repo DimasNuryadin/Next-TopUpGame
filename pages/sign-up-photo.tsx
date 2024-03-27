@@ -8,6 +8,7 @@ import { setSignUp } from "../services/auth";
 import { toast } from 'react-toastify';
 
 import { useRouter } from "next/router";
+import { CategoryTypes } from "../services/data-types";
 
 export default function SignUpPhoto() {
   const [categories, setCategories] = useState([]);
@@ -83,7 +84,7 @@ export default function SignUpPhoto() {
                     name="avatar"
                     accept="image/png, image/jpeg"
                     onChange={(event) => {
-                      const image = event.target.files[0];
+                      const image: any = event.target.files?.[0] || null;
                       setImagePreview(URL.createObjectURL(image));
                       return setImage(image);
                     }}
@@ -103,7 +104,7 @@ export default function SignUpPhoto() {
                   value={favorite}
                   onChange={(event) => setFavorite(event.target.value)}
                 >
-                  {categories.map(category => {
+                  {categories.map((category: CategoryTypes) => {
                     return (
                       <option
                         key={category._id}
