@@ -12,7 +12,7 @@ interface CheckoutProps {
 
 export default function Checkout(props: Readonly<CheckoutProps>) {
   const { user } = props;
-  console.log('user', user)
+  // console.log('user', user)
 
   return (
     <section className="checkout mx-auto pt-md-100 pb-md-145 pt-30 pb-30">
@@ -35,8 +35,16 @@ export default function Checkout(props: Readonly<CheckoutProps>) {
   )
 }
 
+interface GetServerSideProps {
+  req: {
+    cookies: {
+      token: string;
+    };
+  }
+}
+
 // Cek user sudah login
-export async function getServerSideProps({ req }: any) {      // contex berisi req, res, dll
+export async function getServerSideProps({ req }: GetServerSideProps) {      // contex berisi req, res, dll
   const { token } = req.cookies;
   if (!token) {
     return {

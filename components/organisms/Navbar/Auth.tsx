@@ -62,9 +62,7 @@ export default function Auth() {
                 height="40"
                 alt="EUY" />
             )}
-
           </a>
-
           <ul className="dropdown-menu border-0" aria-labelledby="dropdownMenuLink">
             <li><Link className="dropdown-item text-lg color-palette-2" href="/member">My Profile</Link></li>
             <li><Link className="dropdown-item text-lg color-palette-2" href="/">Wallet</Link></li>
