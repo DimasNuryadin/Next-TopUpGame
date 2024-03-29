@@ -1,12 +1,13 @@
 import Image from "next/image";
 import cx from 'classnames'
+import { NumericFormat } from "react-number-format";
 
 interface TableRowProps {
   title: string;
   category: string;
-  item: number;
+  item: string;
   price: number;
-  status: 'Pending' | 'Success' | 'Fail';
+  status: string;
   image: string;
 }
 
@@ -15,15 +16,18 @@ export default function TableRow(props: Readonly<TableRowProps>) {
 
   const statusClass = cx({
     'float-start icon-status': true,
-    'pending': status === 'Pending',
-    'success': status === 'Success',
-    'fail': status === 'Fail',
+    'pending': status === 'pending',
+    'success': status === 'success',
+    'fail': status === 'fail',
   })
+
+  const URL_IMAGE = process.env.NEXT_PUBLIC_IMG;
+  const IMG = `${URL_IMAGE}/${image}`;
 
   return (
     <tr className="align-middle">
       <th scope="row">
-        <Image className="float-start me-3 mb-lg-0 mb-3" src={`/img/${image}.png`}
+        <Image loader={() => `${IMG}?w="200"&q="75"`} className="float-start me-3 mb-lg-0 mb-3" src={IMG}
           width={80} height={60} alt="Game thumb" />
         <div className="game-title-header">
           <p className="game-title fw-medium text-start color-palette-1 m-0">
@@ -33,10 +37,18 @@ export default function TableRow(props: Readonly<TableRowProps>) {
         </div>
       </th>
       <td>
-        <p className="fw-medium color-palette-1 m-0">{item} Gold</p>
+        <p className="fw-medium color-palette-1 m-0">{item}</p>
       </td>
       <td>
-        <p className="fw-medium text-start color-palette-1 m-0">{price}</p>
+        <p className="fw-medium text-start color-palette-1 m-0">
+          <NumericFormat
+            value={price}
+            prefix="Rp. "
+            displayType="text"
+            thousandSeparator="."
+            decimalSeparator=","
+          />
+        </p>
       </td>
       <td>
         <div>

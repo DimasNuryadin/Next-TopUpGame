@@ -35,11 +35,12 @@ export default async function callApi({ url, method, data, token }: CallAPIProps
     return res;
   }
 
+  const {length} = Object.keys(response.data);    // Mengubah Object menjadi array
   // Jika Berhasil
   const res = {
     error: false,
     message: 'success',
-    data: response.data.data,
+    data: length > 1 ? response.data : response.data.data,
   }
   return res;
 }

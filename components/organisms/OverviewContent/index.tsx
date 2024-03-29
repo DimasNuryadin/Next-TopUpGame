@@ -1,7 +1,30 @@
+import { useCallback, useEffect, useState } from "react"
 import Category from "./Category"
 import TableRow from "./TableRow"
+import { getMemberOverview } from "../../../services/player"
+import { toast } from "react-toastify"
+import { HistoryTransactionTypes, TopUpCategoryTypes } from "../../../services/data-types"
 
 export default function OverviewContent() {
+  const [count, setCount] = useState([])
+  const [data, setData] = useState([]);
+
+  // Get Dashboard Overview
+  const getMemberOverviewList = useCallback(async () => {
+    const response = await getMemberOverview()
+    if (response.error) {
+      toast.error(response.message)
+    } else {
+      // console.log(response.data)
+      setCount(response.data.count);
+      setData(response.data.data);
+    }
+  }, [])
+
+  useEffect(() => {
+    getMemberOverviewList();
+  }, [])
+
   return (
     <main className="main-wrapper">
       <div className="ps-lg-0">
@@ -10,21 +33,19 @@ export default function OverviewContent() {
           <p className="text-lg fw-medium color-palette-1 mb-14">Top Up Categories</p>
           <div className="main-content">
             <div className="row">
-              <Category nominal={18000500} icon="ic-dekstop">
-                Game
-                <br />
-                Dekstop
-              </Category>
-              <Category nominal={18000500} icon="ic-dekstop">
-                Game
-                <br />
-                Dekstop
-              </Category>
-              <Category nominal={5000000} icon="ic-mobile">
-                Other
-                <br />
-                Categories
-              </Category>
+              {count.map((item: TopUpCategoryTypes) => {
+                return (
+                  <Category
+                    key={item._id}
+                    nominal={item.value}
+                    icon="ic-dekstop"
+                  >
+                    Game
+                    <br />
+                    {item.name}
+                  </Category>
+                )
+              })}
             </div>
           </div>
         </div>
@@ -41,38 +62,19 @@ export default function OverviewContent() {
                 </tr>
               </thead>
               <tbody>
-                <TableRow
-                  title="Mobile Legends: The New Battle 2021"
-                  category="Dekstop"
-                  item={200}
-                  price={290}
-                  status="Pending"
-                  image="overview-1"
-                />
-                <TableRow
-                  title="Call of Duty:Modern"
-                  category="Dekstop"
-                  item={550}
-                  price={740000}
-                  status="Pending"
-                  image="overview-2"
-                />
-                <TableRow
-                  title="Clash of Clans"
-                  category="Mobile"
-                  item={100}
-                  price={120}
-                  status="Pending"
-                  image="overview-3"
-                />
-                <TableRow
-                  title="MThe Royal Game"
-                  category="Mobile"
-                  item={225}
-                  price={200000}
-                  status="Pending"
-                  image="overview-4"
-                />
+                {data.map((item: HistoryTransactionTypes) => {
+                  return (
+                    <TableRow
+                      key={item._id}
+                      image={item.historyVoucherTopup.thumbnail}
+                      title={item.historyVoucherTopup.gameName}
+                      category={item.historyVoucherTopup.category}
+                      item={`${item.historyVoucherTopup.coinQuantity} ${item.historyVoucherTopup.coinName}`}
+                      price={item.value}
+                      status={item.status}
+                    />
+                  )
+                })}
               </tbody>
             </table>
           </div>
