@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react"
 import Category from "./Category"
 import TableRow from "./TableRow"
-import { getMemberOverview } from "../../../services/player"
 import { toast } from "react-toastify"
+import { getMemberOverview } from "../../../services/member"
 import { HistoryTransactionTypes, TopUpCategoryTypes } from "../../../services/data-types"
 
 export default function OverviewContent() {

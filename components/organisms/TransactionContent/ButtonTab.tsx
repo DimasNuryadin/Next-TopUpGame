@@ -1,13 +1,13 @@
-import Link from "next/link";
 import cx from 'classnames';
 
 interface ButtonTabProps {
   title: string;
   active: boolean;
+  onClick: () => void;
 }
 
 export default function ButtonTab(props: Readonly<ButtonTabProps>) {
-  const { title, active } = props;
+  const { title, active, onClick } = props;
 
   const btnClass = cx({
     'btn btn-status rounded-pill text-sm me-3': true,
@@ -15,6 +15,8 @@ export default function ButtonTab(props: Readonly<ButtonTabProps>) {
   })
 
   return (
-    <Link data-filter="*" href="#" className={btnClass}>{title}</Link>
+    <button onClick={onClick} type='button' className={btnClass}>
+      {title}
+    </button>
   )
 }

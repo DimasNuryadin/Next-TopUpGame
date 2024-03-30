@@ -14,3 +14,19 @@ export async function getMemberOverview() {
   })
 }
 
+// Get History, Member Transaction
+export async function getMemberTransaction(valueParams) {
+  let params = '';
+  if (valueParams === 'all') {
+    params = '';
+  } else {
+    params = `?status=${valueParams}`
+  }
+  const url = `${ROOT_API}/${API_VERSION}/players/history${params}`;
+
+  return callApi({
+    url,
+    method: 'GET',
+    token: true,
+  })
+}
