@@ -26,7 +26,7 @@ export default function MenuItem(props: Readonly<Partial<MenuItemProps>>) {
       </div>
       <p className="item-title m-0">
         {onClick ? (
-          <a className="text-lg text-decoration-none">{title}</a>
+          <Link href="" className="text-lg text-decoration-none">{title}</Link>
         ) : (
           <Link href={href!} className="text-lg text-decoration-none">{title}</Link>
         )}
