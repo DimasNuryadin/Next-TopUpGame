@@ -33,23 +33,9 @@ export async function getServerSideProps({ req }: GetServerSideProps) {      // 
   }
 
   // console.log('token : ', token);   // Console hanya bisa dilihat pada console terminal
-  // atob tidak bisa digunakan di server jadi pakai fungsi Buffer yang sudah disediakan oleh node
-  const jwtToken = Buffer.from(token, 'base64').toString('ascii');
-
-  // jwt_decode
-  const payload: JWTPayloadTypes = jwtDecode(jwtToken);
-
-  const userFromPayload: UserTypes = payload.player;
-
-  // Image
-  if (userFromPayload.avatar) {
-    const IMG = process.env.NEXT_PUBLIC_IMG;
-    userFromPayload.avatar = `${IMG}/${userFromPayload.avatar}`;
-  }
-
   return {
     props: {
-      user: userFromPayload,   // Kirim data payload ke props
+      user: {},
     }
   }
 }
