@@ -27,7 +27,7 @@ export default function TableRow(props: Readonly<TableRowProps>) {
         <img
           src={image}
           className="float-start me-3 mb-lg-0 mb-3"
-          width="80" height="60" alt=""
+          width="80" height="60" alt="Thumbnail"
         />
         <div className="game-title-header">
           <p className="game-title fw-medium text-start color-palette-1 m-0">Mobile
