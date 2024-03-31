@@ -31,6 +31,7 @@ export async function getMemberTransaction(valueParams: string) {
   })
 }
 
+// Get History Detail
 export async function getMemberTransactionDetail(id: string, token: string) {
   const url = `${ROOT_API}/${API_VERSION}/players/history/${id}/detail`;
 
@@ -38,5 +39,16 @@ export async function getMemberTransactionDetail(id: string, token: string) {
     url,
     method: 'GET',
     serverToken: token,
+  })
+}
+
+export async function updateProfile(data: FormData) {
+  const url = `${ROOT_API}/${API_VERSION}/players/profile`;
+
+  return callApi({
+    url,
+    method: 'PUT',
+    data,
+    token: true,
   })
 }
