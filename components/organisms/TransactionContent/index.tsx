@@ -4,13 +4,14 @@ import TableRow from "./TableRow";
 import { useCallback, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { getMemberTransaction } from "../../../services/member";
+import { HistoryTransactionTypes } from "../../../services/data-types";
 
 export default function TransactionContent() {
   const [total, setTotal] = useState(0);
   const [transaction, setTransaction] = useState([]);
   const [tab, setTab] = useState('all');
 
-  const getMemberTransactionAPI = useCallback(async (value) => {
+  const getMemberTransactionAPI = useCallback(async (value: string) => {
     const response = await getMemberTransaction(value);
     if (response.error) {
       toast.error(response.message)
@@ -25,7 +26,7 @@ export default function TransactionContent() {
     getMemberTransactionAPI('all');
   }, [])
 
-  const onTabClick = (value) => {
+  const onTabClick = (value: string) => {
     setTab(value);
     getMemberTransactionAPI(value);
   }
@@ -72,10 +73,11 @@ export default function TransactionContent() {
                 </tr>
               </thead>
               <tbody id="list_status_item">
-                {transaction.map((transaction) => {
+                {transaction.map((transaction: HistoryTransactionTypes) => {
                   return (
                     <TableRow
                       key={transaction._id}
+                      id={transaction._id}
                       image={`${IMG}/${transaction.historyVoucherTopup.thumbnail}`}
                       title={transaction.historyVoucherTopup.gameName}
                       category={transaction.historyVoucherTopup.category}

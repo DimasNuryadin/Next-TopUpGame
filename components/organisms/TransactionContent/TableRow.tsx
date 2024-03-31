@@ -9,10 +9,11 @@ interface TableRowProps {
   item: string;
   price: number;
   status: string;
+  id: string;
 }
 
 export default function TableRow(props: Readonly<TableRowProps>) {
-  const { image, title, category, item, price, status } = props;
+  const { image, title, category, item, price, status, id } = props;
   const statusClass = cx({
     'float-start icon-status': true,
     'pending': status === 'pending',
@@ -56,7 +57,7 @@ export default function TableRow(props: Readonly<TableRowProps>) {
         </div>
       </td>
       <td>
-        <Link href="/member/transactions/detail"
+        <Link href={`/member/transactions/${id}`}
           className="btn btn-status rounded-pill text-sm">Details</Link>
       </td>
     </tr>

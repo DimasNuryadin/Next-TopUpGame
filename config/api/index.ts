@@ -3,12 +3,18 @@ import Cookies from "js-cookie";
 
 interface CallAPIProps extends AxiosRequestConfig { // Tipe validasi bisa extends pakai axios yang sudah disediakan
   token?: boolean;
+  serverToken?: string;
 }
 
-export default async function callApi({ url, method, data, token }: CallAPIProps) {
+export default async function callApi({ url, method, data, token, serverToken }: CallAPIProps) {
   // Untuk call API dengan token
   let headers = {};
-  if (token) {
+
+  if (serverToken) {      // Pemanggilan token server side, contoh pada [idTrx].ts
+    headers = {
+      Authorization: `Bearer ${serverToken}`,
+    }
+  } else if (token) {     // Pemanggilan token client side
     // Ambil Cookies
     const tokenCookies = Cookies.get('token');
     if (tokenCookies) {
@@ -18,6 +24,7 @@ export default async function callApi({ url, method, data, token }: CallAPIProps
       }
     }
   }
+  
   const response = await axios({
     url,
     method,

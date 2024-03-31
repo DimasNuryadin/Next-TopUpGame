@@ -15,10 +15,10 @@ export async function getMemberOverview() {
 }
 
 // Get History, Member Transaction
-export async function getMemberTransaction(valueParams) {
+export async function getMemberTransaction(valueParams: string) {
   let params = '';
   if (valueParams === 'all') {
-    params = '';
+    params = "";
   } else {
     params = `?status=${valueParams}`
   }
@@ -28,5 +28,15 @@ export async function getMemberTransaction(valueParams) {
     url,
     method: 'GET',
     token: true,
+  })
+}
+
+export async function getMemberTransactionDetail(id: string, token: string) {
+  const url = `${ROOT_API}/${API_VERSION}/players/history/${id}/detail`;
+
+  return callApi({
+    url,
+    method: 'GET',
+    serverToken: token,
   })
 }
