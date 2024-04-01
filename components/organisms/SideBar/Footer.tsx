@@ -28,7 +28,7 @@ export default function Footer() {
             Be The Winner</p>
         </div>
         <a className="btn btn-get-started w-100 fw-medium text-xs text-center text-white rounded-pill"
-          href="#" role="button">Get Started</a>
+          href="/#">Get Started</a>
       </div>
     </div>
   )
