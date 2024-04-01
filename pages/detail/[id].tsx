@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Footer from "../../components/organisms/Footer";
 import Navbar from '../../components/organisms/Navbar';
 import TopUpForm from "../../components/organisms/TopUpForm";
@@ -12,6 +13,10 @@ interface DetailProps {
 }
 
 export default function Detail({ dataItem, nominals, payments }: DetailProps) {
+
+  useEffect(() => {
+    localStorage.setItem('data-item', JSON.stringify(dataItem))
+  }, [])
 
   return (
     <>
@@ -49,7 +54,7 @@ export async function getStaticPaths() {
       id: item._id,   // id = [id].tsx
     },
   }));
-  console.log("paths : ", paths)
+  // console.log("paths : ", paths)
   return {
     paths,
     fallback: false,
@@ -65,7 +70,7 @@ interface GetStaticProps {
 export async function getStaticProps({ params }: GetStaticProps) {       // contex yang dibutuhin di file ini hanya params
   const { id } = params;
   const { data } = await getDetailVoucher(id);
-  console.log("data : ", data)
+  // console.log("data : ", data)
   return {
     props: {
       dataItem: data.detail,

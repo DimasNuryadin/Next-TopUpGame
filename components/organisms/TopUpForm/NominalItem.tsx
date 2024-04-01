@@ -21,8 +21,9 @@ export default function NominalItem(props: Readonly<NominalItemProps>) {
       <input className="d-none" type="radio" id={_id} name="topup" value={_id} />
       <div className="detail-card">
         <div className="d-flex justify-content-between">
-          <p className="text-3xl color-palette-1 m-0"><span className="fw-medium">{coinQuantity} </span>
-            {coinName}
+          <p className="text-3xl color-palette-1 m-0"><span className="fw-medium">
+            {`${coinQuantity} ${coinName}`}
+          </span>
           </p>
           <svg id="icon-check" width="20" height="20" viewBox="0 0 20 20" fill="none"
             xmlns="http://www.w3.org/2000/svg">

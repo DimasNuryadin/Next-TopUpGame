@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 import { toast } from 'react-toastify';
 
 // Lodash untuk cek object kosong atau tidak
-var _ = require('lodash');
+const _ = require('lodash');
 
 interface TopUpFormProps {
   nominals: NominalsTypes[];
