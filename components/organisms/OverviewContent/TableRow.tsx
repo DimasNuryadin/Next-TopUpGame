@@ -18,7 +18,7 @@ export default function TableRow(props: Readonly<TableRowProps>) {
     'float-start icon-status': true,
     'pending': status === 'pending',
     'success': status === 'success',
-    'fail': status === 'fail',
+    'failed': status === 'failed',
   })
 
   const URL_IMAGE = process.env.NEXT_PUBLIC_IMG;
