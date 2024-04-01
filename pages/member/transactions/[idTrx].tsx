@@ -9,7 +9,6 @@ interface TransactionDetailProps {
 
 export default function TransactionDetail(props: Readonly<TransactionDetailProps>) {
   const { transactionDetail } = props;
-  // console.log("detail :", transactionDetail)
 
   return (
     <section className="transactions-detail overflow-auto">
@@ -31,7 +30,6 @@ interface GetServerSideProps {
 
 // Cek user sudah login
 export async function getServerSideProps({ req, params }: GetServerSideProps) {      // contex berisi req, res, dll
-  // console.log("params : ", params)
   const { idTrx } = params;
   const { token } = req.cookies;
   if (!token) {
@@ -43,7 +41,6 @@ export async function getServerSideProps({ req, params }: GetServerSideProps) { 
     }
   }
 
-  // console.log('token : ', token);   // Console hanya bisa dilihat pada console terminal
   // atob tidak bisa digunakan di server jadi pakai fungsi Buffer yang sudah disediakan oleh node
   const jwtToken = Buffer.from(token, 'base64').toString('ascii');
 
@@ -59,7 +56,6 @@ export async function getServerSideProps({ req, params }: GetServerSideProps) { 
   }
 
   const response = await getMemberTransactionDetail(idTrx, jwtToken)
-  // console.log("response : ", response)
 
   return {
     props: {

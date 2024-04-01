@@ -25,7 +25,6 @@ export default function TopUpForm(props: Readonly<TopUpFormProps>) {
 
   // Mengambil Value darai component children
   const onNominalItemChange = (data: NominalsTypes) => {
-    // console.log('data : ', data)
     setNominalItem(data)
   }
 

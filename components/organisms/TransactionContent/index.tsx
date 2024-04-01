@@ -16,7 +16,6 @@ export default function TransactionContent() {
     if (response.error) {
       toast.error(response.message)
     } else {
-      // console.log("data : ", response.data);
       setTotal(response.data.total);
       setTransaction(response.data.data);
     }

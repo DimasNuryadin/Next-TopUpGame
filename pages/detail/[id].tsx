@@ -54,7 +54,6 @@ export async function getStaticPaths() {
       id: item._id,   // id = [id].tsx
     },
   }));
-  // console.log("paths : ", paths)
   return {
     paths,
     fallback: false,
@@ -70,7 +69,6 @@ interface GetStaticProps {
 export async function getStaticProps({ params }: GetStaticProps) {       // contex yang dibutuhin di file ini hanya params
   const { id } = params;
   const { data } = await getDetailVoucher(id);
-  // console.log("data : ", data)
   return {
     props: {
       dataItem: data.detail,

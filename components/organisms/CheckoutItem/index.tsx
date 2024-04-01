@@ -19,7 +19,6 @@ export default function CheckoutItem() {
         name: dataItemLocal.category.name,
       }
     });
-    // console.log('data item :', dataItemLocal)
   }, [])
 
   const IMG = process.env.NEXT_PUBLIC_IMG;

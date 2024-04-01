@@ -25,7 +25,6 @@ export default function CheckoutConfirmation() {
         name: dataTopUp.bankAccountName,
         accountUser: dataTopUp.verifyID
       }
-      // console.log("data : ", data)
 
       // Post Checkout API
       const response = await setCheckout(data)

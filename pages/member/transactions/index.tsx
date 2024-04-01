@@ -30,7 +30,6 @@ export async function getServerSideProps({ req }: GetServerSideProps) {      // 
     }
   }
 
-  // console.log('token : ', token);   // Console hanya bisa dilihat pada console terminal
   return {
     props: {
       user: {},
