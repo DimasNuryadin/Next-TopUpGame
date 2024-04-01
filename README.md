@@ -26,4 +26,4 @@ yarn dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ### This is the project link
-[Vercel](https://express-top-up-game.vercel.app)
+[Vercel](https://next-top-up-game.vercel.app)
