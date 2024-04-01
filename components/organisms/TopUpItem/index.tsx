@@ -33,8 +33,9 @@ export default function TopUpItem(props: Readonly<TopUpItemProps>) {
         <Image
           loader={() => `${thumbnail}?w=${280}&q=${75}`}
           src={thumbnail}
-          width={280}
-          height={380}
+          width={0}
+          height={0}
+          style={{ width: '280px', height: "auto" }}
           className="img-fluid"
           alt="Thumbnail"
         />

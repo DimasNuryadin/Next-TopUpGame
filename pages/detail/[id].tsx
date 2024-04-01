@@ -1,39 +1,18 @@
 import Footer from "../../components/organisms/Footer";
+import Navbar from '../../components/organisms/Navbar';
 import TopUpForm from "../../components/organisms/TopUpForm";
 import TopUpItem from "../../components/organisms/TopUpItem";
-import Navbar from '../../components/organisms/Navbar'
-import { useRouter } from "next/router";
-import { useCallback, useEffect, useState } from "react";
-import { getDetailVoucher } from "../../services/player";
+import { GameItemTypes, NominalsTypes, PaymentTypes } from "../../services/data-types";
+import { getDetailVoucher, getFeatureGame } from "../../services/player";
 
-export default function Detail() {
-  const { query, isReady } = useRouter();
-  const [dataItem, setDataItem] = useState({
-    name: '',
-    thumbnail: '',
-    category: {
-      name: '',
-    }
-  });
+interface DetailProps {
+  dataItem: GameItemTypes;
+  nominals: NominalsTypes[];
+  payments: PaymentTypes[];
+}
 
-  const [nominals, setNominals] = useState([])
-  const [payments, setPayments] = useState([]);
+export default function Detail({ dataItem, nominals, payments }: DetailProps) {
 
-  // Get Detail Page
-  const getVoucherDetailAPI = useCallback(async (id: any) => {
-    const { data } = await getDetailVoucher(id);
-    setDataItem(data.detail);
-    localStorage.setItem('data-item', JSON.stringify(data.detail))
-    setNominals(data.detail.nominals)
-    setPayments(data.payment)
-  }, [])
-
-  useEffect(() => {
-    if (isReady) {
-      // console.log('router sudah tersedia', query.id)
-      getVoucherDetailAPI(query.id);
-    }
-  }, [isReady])
   return (
     <>
       <Navbar />
@@ -60,4 +39,38 @@ export default function Detail() {
       <Footer />
     </>
   )
+}
+
+// GetStaticPath, tidak bisa berdiri sendiri jadi harus ada GetStaticProps
+export async function getStaticPaths() {
+  const { data } = await getFeatureGame();
+  const paths = data.map((item: GameItemTypes) => ({
+    params: {     // params ini dikirim ke getStaticProps
+      id: item._id,   // id = [id].tsx
+    },
+  }));
+  console.log("paths : ", paths)
+  return {
+    paths,
+    fallback: false,
+  };
+}
+
+interface GetStaticProps {
+  params: {
+    id: string;
+  }
+}
+// getStaticPath tidak bisa berdiri sendiri jadi harus ada getStaticProps
+export async function getStaticProps({ params }: GetStaticProps) {       // contex yang dibutuhin di file ini hanya params
+  const { id } = params;
+  const { data } = await getDetailVoucher(id);
+  console.log("data : ", data)
+  return {
+    props: {
+      dataItem: data.detail,
+      nominals: data.detail.nominals,
+      payments: data.payment,
+    },
+  };
 }
