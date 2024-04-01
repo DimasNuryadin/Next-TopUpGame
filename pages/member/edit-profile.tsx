@@ -3,19 +3,27 @@ import Input from "../../components/atoms/Input.tsx";
 import SideBar from "../../components/organisms/SideBar";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
-import { JWTPayloadTypes, UserTypes } from "../../services/data-types/index.js";
+import { JWTPayloadTypes, UserTypes } from "../../services/data-types/index";
 import { jwtDecode } from "jwt-decode";
 import { updateProfile } from "../../services/member";
 import { toast } from "react-toastify";
-import { useRouter } from "next/router.js";
+import { useRouter } from "next/router";
+
+interface UserStateTypes {
+  id: string;
+  name: string;
+  email: string;
+  avatar: any;
+}
 
 export default function EditProfile() {
-  const [user, setUser] = useState({
+  const [user, setUser] = useState<UserStateTypes>({
+    id: '',
     avatar: '',
     name: '',
     email: '',
   })
-  const [imagePreview, setImagePreview] = useState(null);
+  const [imagePreview, setImagePreview] = useState('/');
   const router = useRouter();
 
   useEffect(() => {
@@ -61,18 +69,18 @@ export default function EditProfile() {
               <div className="photo d-flex">
                 <div className="image-upload">
                   <label htmlFor="avatar">
-                    {imagePreview ? (
-                      <img
-                        src={imagePreview}
+                    {imagePreview === '/' ? (
+                      <Image
+                        src={user.avatar}
+                        loader={() => `${user.avatar}?w="90"`}
                         width={90}
                         height={90}
                         alt="Icon Upload"
                         style={{ borderRadius: "100%" }}
                       />
                     ) : (
-                      <Image
-                        src={user.avatar}
-                        loader={() => `${user.avatar}?w="90"`}
+                      <img
+                        src={imagePreview}
                         width={90}
                         height={90}
                         alt="Icon Upload"
@@ -87,7 +95,7 @@ export default function EditProfile() {
                     name="avatar"
                     accept="image/png, image/jpeg"
                     onChange={(event) => {
-                      const image: any = event.target.files?.[0];
+                      const image: any = event.target.files![0];
                       setImagePreview(URL.createObjectURL(image));
                       return setUser({
                         ...user,

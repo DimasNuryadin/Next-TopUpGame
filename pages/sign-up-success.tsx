@@ -7,7 +7,7 @@ export default function SignUpSuccess() {
         <div className="text-center">
           <svg className="img-fluid" width="316" height="300" viewBox="0 0 316 300" fill="none"
             xmlns="http://www.w3.org/2000/svg">
-            <g clip-path="url(#clip0)">
+            <g clipPath="url(#clip0)">
               <path
                 d="M18.4405 59.8199C21.1258 58.9441 22.5952 56.0494 21.7224 53.3546C20.8496 50.6599 17.9651 49.1854 15.2797 50.0612C12.5944 50.937 11.1251 53.8317 11.9978 56.5265C12.8707 59.2212 15.7551 60.6959 18.4405 59.8199Z"
                 fill="#EAEEF9" />
@@ -89,7 +89,7 @@ export default function SignUpSuccess() {
               <linearGradient id="paint5_linear" x1="228.945" y1="181.715" x2="285.277" y2="181.715"
                 gradientUnits="userSpaceOnUse">
                 <stop stopColor="#4F6AFF" />
-                <stop offset="1" stopColor="#657EFF" stop-opacity="0" />
+                <stop offset="1" stopColor="#657EFF" stopOpacity="0" />
               </linearGradient>
               <linearGradient id="paint6_linear" x1="251.694" y1="188.119" x2="230.382" y2="164.142"
                 gradientUnits="userSpaceOnUse">

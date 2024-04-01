@@ -17,8 +17,8 @@ export default function SignUpPhoto() {
     email: '',
   });
   const [favorite, setFavorite] = useState('')
-  const [image, setImage] = useState('')
-  const [imagePreview, setImagePreview] = useState('/icon/upload.svg')
+  const [image, setImage] = useState<any>('')
+  const [imagePreview, setImagePreview] = useState<any>('/icon/upload.svg')
 
   const router = useRouter()
 
@@ -84,7 +84,7 @@ export default function SignUpPhoto() {
                     name="avatar"
                     accept="image/png, image/jpeg"
                     onChange={(event) => {
-                      const image: any = event.target.files?.[0] || null;
+                      const image: any = event.target.files![0];
                       setImagePreview(URL.createObjectURL(image));
                       return setImage(image);
                     }}

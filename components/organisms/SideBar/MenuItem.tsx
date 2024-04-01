@@ -11,7 +11,7 @@ interface MenuItemProps {
 }
 
 export default function MenuItem(props: Readonly<Partial<MenuItemProps>>) {
-  const { title, icon, active, href, onClick } = props
+  const { title, icon, active, href = '/', onClick } = props
 
   const classItem = cx({
     'item': true,
@@ -28,7 +28,7 @@ export default function MenuItem(props: Readonly<Partial<MenuItemProps>>) {
         {onClick ? (
           <Link href="" className="text-lg text-decoration-none">{title}</Link>
         ) : (
-          <Link href={href!} className="text-lg text-decoration-none">{title}</Link>
+          <Link href={href} className="text-lg text-decoration-none">{title}</Link>
         )}
       </p>
     </div>

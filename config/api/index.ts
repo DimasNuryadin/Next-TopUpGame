@@ -1,4 +1,5 @@
-import axios, { AxiosRequestConfig } from "axios";
+import axios from 'axios';
+import type { AxiosRequestConfig } from 'axios';
 import Cookies from "js-cookie";
 
 interface CallAPIProps extends AxiosRequestConfig { // Tipe validasi bisa extends pakai axios yang sudah disediakan
