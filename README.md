@@ -14,7 +14,6 @@ yarn install
 ```bash
 NEXT_PUBLIC_API = https://express-top-up-game.vercel.app
 NEXT_PUBLIC_IMG = https://express-top-up-game.vercel.app/uploads
-# or
 ```
 
 Run the development server:
