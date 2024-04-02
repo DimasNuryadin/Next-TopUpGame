@@ -32,7 +32,8 @@
             "jsx": "never",
             "ts": "never",
             "tsx": "never"
-        }]
+        }],
+        "import/no-named-as-default": 0
     },
     "settings": {
         "import/extensions": [

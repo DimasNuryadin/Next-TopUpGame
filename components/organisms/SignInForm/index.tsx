@@ -10,9 +10,13 @@ import { toast } from 'react-toastify';
 // Cookies
 import Cookies from 'js-cookie';
 
+// Captcha
+import ReCAPTCHA from "react-google-recaptcha";
+
 export default function SignInForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [captcha, setCaptcha] = useState<string | null>();
   const router = useRouter();
 
   const className = {
@@ -28,6 +32,8 @@ export default function SignInForm() {
 
     if (!email || !password) {
       toast.error('Email dan Password wajib diisi!!!')
+    } else if (!captcha) {
+      toast.error('Captcha wajib diisi!!')
     } else {
       const response = await setSignIn(data)
       if (response.error) {
@@ -41,6 +47,8 @@ export default function SignInForm() {
       }
     }
   }
+
+  const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
 
   return (
     <>
@@ -58,7 +66,7 @@ export default function SignInForm() {
           onChange={(event) => setEmail(event.target.value)}
         />
       </div>
-      <div className="pt-30">
+      <div className="pt-20">
         <label htmlFor="password"
           className={className.label}>Password</label>
         <input
@@ -70,7 +78,16 @@ export default function SignInForm() {
           onChange={(event) => setPassword(event.target.value)}
         />
       </div>
-      <div className="button-group d-flex flex-column mx-auto pt-50">
+      {/* Recaptcha */}
+      <div className="flex pt-20">
+        <ReCAPTCHA
+          className="mx-auto"
+          sitekey={siteKey!}
+          onChange={setCaptcha}
+        />
+      </div>
+
+      <div className="button-group d-flex flex-column mx-auto pt-20">
         <button
           type="button"
           className="btn btn-sign-in fw-medium text-lg text-white rounded-pill mb-16"
