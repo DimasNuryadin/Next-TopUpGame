@@ -25,5 +25,8 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-### This is the project link
-[Vercel](https://next-top-up-game.vercel.app)
+## Website Preview
+See [StoreGG](https://next-top-up-game.vercel.app).
+
+## Screenshoot
+<img src="https://res.cloudinary.com/dgharj3cy/image/upload/v1736314851/img_project101_ckmeu7.png" alt="StoreGG" />
